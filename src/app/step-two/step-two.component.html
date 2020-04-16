@@ -1,0 +1,243 @@
+<section class="information-card">
+  <div class="title">{{ title }}</div>
+  <div class="description-layout">
+    <div>
+      <ul class="space">
+        <li *ngFor="let desc of description1">{{ desc.name }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="authorizationDetails-form">
+  <section class="form-layout">
+    <form [formGroup]="form">
+      <div class="container-flex">
+        <mat-form-field
+          appearance="fill"
+          [color]="colorControl.value"
+          class="example-full-width item-flex"
+        >
+          <mat-label> Virtual Base Path </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="virtual base path"
+            formControlName="virtualBasePath"
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          [color]="colorControl.value"
+          class="example-full-width item-flex"
+        >
+          <mat-label> Resource Path </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="backend resource path"
+            formControlName="resourcePath"
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          [color]="colorControl.value"
+          class="example-full-width item-flex"
+        >
+          <mat-label> App Code </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="app code"
+            formControlName="appCode"
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          [color]="colorControl.value"
+          class="example-full-width item-flex"
+        >
+          <mat-label> Swagger URL </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="swagger spec url"
+            formControlName="swaggerUrl"
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          [color]="colorControl.value"
+          class="example-full-width item-flex"
+        >
+          <mat-label> Product name </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="product name"
+            formControlName="productName"
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          [color]="colorControl.value"
+          class="example-full-width item-flex"
+        >
+          <mat-label> Product Description </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="product description"
+            formControlName="productDescription"
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          [color]="colorControl.value"
+          class="example-full-width item-flex"
+        >
+          <mat-label> Throttling limits </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="throttling limits"
+            formControlName="throttling"
+          />
+        </mat-form-field>
+
+        <div formGroupName="snbx">
+          <mat-form-field
+            appearance="fill"
+            [color]="colorControl.value"
+            class="example-full-width item-flex"
+          >
+            <mat-label> Backend Host </mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="backend host"
+              formControlName="backendHost"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="fill"
+            [color]="colorControl.value"
+            class="example-full-width item-flex"
+          >
+            <mat-label> get Roles </mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="get method role names"
+              formControlName="getRoles"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="fill"
+            [color]="colorControl.value"
+            class="example-full-width item-flex"
+          >
+            <mat-label> Product Roles </mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="put method role names"
+              formControlName="putRoles"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="fill"
+            [color]="colorControl.value"
+            class="example-full-width item-flex"
+          >
+            <mat-label> isProxySelected Roles </mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="post method role names"
+              formControlName="postRoles"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="fill"
+            [color]="colorControl.value"
+            class="example-full-width item-flex"
+          >
+            <mat-label> delete Roles </mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="delete method role names"
+              formControlName="deleteRoles"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="fill"
+            [color]="colorControl.value"
+            class="example-full-width item-flex"
+          >
+            <mat-label> patch Roles </mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="patch method role names"
+              formControlName="patchRoles"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <label class="field-name" for="yaml" *ngIf="yaml"> Yaml </label>
+      <div class="yaml-text" *ngIf="yaml">
+        <fa-icon
+          ngxClipboard
+          [cbContent]="yaml"
+          [icon]="copyIcon"
+          class="fas fa-3x icon-style"
+          style="color: #00acdc;"
+        ></fa-icon>
+        <fa-icon
+          class="fas fa-3x space-icon icon-style"
+          style="color: #00acdc;"
+          [icon]="downloadIcon"
+          (click)="download(yaml)"
+        ></fa-icon>
+        <pre class="input-name">{{ yaml }}</pre>
+      </div>
+    </form>
+
+    <div class="steps-button">
+      <button
+        mat-raised-button
+        style="margin-right: 15px;"
+        subdued="true"
+        type="button"
+        (click)="clear(form)"
+        [disabled]="!yaml"
+      >
+        Clear
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="generateYaml(form)"
+        [disabled]="!form.valid"
+      >
+        Generate YAML
+      </button>
+    </div>
+    <div class="form-bottom"></div>
+  </section>
+</section>

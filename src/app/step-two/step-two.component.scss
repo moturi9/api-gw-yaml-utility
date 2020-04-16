@@ -1,0 +1,224 @@
+.information-card {
+  width: 70%;
+  background-color: #ede7f6;
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+
+  @media only screen and (max-device-width: 667px) {
+    width: 100%;
+    background-color: #ede7f6;
+    margin-top: 15%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .title {
+    // color: #095280;
+    color: #673ab7;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 31px;
+    padding-top: 1rem;
+    padding-bottom: 0.8rem;
+    margin-left: 15px;
+  }
+
+  .description-layout {
+    display: flex;
+    flex-direction: row;
+    font-style: italic;
+
+    padding-left: 2rem;
+
+    div {
+      color: #4d4d4d;
+      font-size: 17px;
+      padding-right: 5rem;
+
+      ul.space {
+        li {
+          padding-bottom: 0.5rem;
+        }
+      }
+
+      ul.bullets {
+        list-style-type: circle;
+        padding-left: 1rem;
+
+        li {
+          padding-top: 0.3rem;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+.authorizationDetails-form {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+
+  @media only screen and (max-device-width: 667px) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .form-layout {
+    background-color: #ede7f6;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    form {
+      width: 80%;
+      .title {
+        color: #095280;
+        font-size: 24px;
+        padding-top: 1rem;
+      }
+      .field-name {
+        display: block;
+        font-size: 18px;
+        color: #4a4a4a;
+        padding: 1rem 0 1rem 0;
+        // span {
+        //   //  color: #BD2B2B;
+        // }
+        #info {
+          color: #e46026;
+          font-size: 18px;
+          padding-left: 0.25rem;
+          cursor: pointer;
+        }
+      }
+      .headers {
+        display: flex;
+        position: relative;
+        padding-bottom: 0.5rem;
+        input.input-name.headers.c-form-input {
+          width: 50%;
+          margin-right: 0.5rem;
+        }
+      }
+      .header-controls {
+        padding: 1rem 0;
+        .c-button {
+          margin-right: 1rem !important;
+          // color: #E46026 !important;
+          span {
+            padding-left: 1rem !important;
+          }
+        }
+        i#buttonIcon {
+          margin-right: 5px;
+        }
+      }
+      .input-name {
+        width: 50%;
+        font-style: italic;
+      }
+      .json-swagger {
+        font-size: 16px;
+        color: #4a4a4a;
+        font-style: italic !important;
+        padding: 0.5rem;
+      }
+      .input-text {
+        font-size: 18px;
+      }
+      .question {
+        padding: 1rem 0;
+        fm-radio {
+          padding-right: 1.5rem;
+        }
+      }
+    }
+
+    @media (max-width: 1300px) {
+      form {
+        width: 100%;
+      }
+      .form-inline-flex {
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+fm-select ::ng-deep div.ui-dropdown {
+  width: 50% !important;
+}
+
+.steps-button {
+  @media only screen and (max-device-width: 400px) {
+    right: 25%;
+  }
+  position: absolute;
+  right: 45%;
+  margin-top: 2rem;
+}
+.steps-button-right {
+  position: absolute;
+  right: 45%;
+  margin-top: 2rem;
+}
+
+.form-bottom {
+  padding: 3rem 1rem;
+}
+
+i {
+  font-size: 2rem;
+  color: #00acdc;
+  margin-bottom: 1rem;
+  padding: 1rem 0 1rem 1rem;
+}
+
+.icon-style:hover {
+  cursor: pointer;
+  // transform: scale(0.5);
+}
+
+i:hover {
+  cursor: pointer;
+  // transform: scale(0.5);
+}
+
+.yaml-text {
+  padding: 2rem 2rem;
+  border: 1px solid #095280;
+  border-radius: 7px;
+}
+
+.container-flex + .example-container {
+  display: flex;
+}
+
+.item-flex + .mat-form-field {
+  flex-basis: auto;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.mat-form-field {
+  margin: 10px;
+}
+
+.example-full-width {
+  width: 45%;
+  @media only screen and (max-device-width: 667px) {
+    width: 80%;
+  }
+}
+
+.mat-expand {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.space-icon {
+  margin-left: 15px;
+}

@@ -1,0 +1,206 @@
+<section class="information-card">
+  <div class="title">{{ title }}</div>
+  <div class="description-layout">
+    <div>
+      <ul class="space">
+        <li *ngFor="let desc of description1">{{ desc.name }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="authorizationDetails-form">
+  <section class="form-layout">
+    <form class="example-container" [formGroup]="form">
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              Quota Policy
+            </mat-expansion-panel-header>
+            <div formGroupName="Quota" class="container-flex">
+              <mat-form-field
+                appearance="fill"
+                [color]="colorControl.value"
+                class="example-full-width item-flex"
+              >
+                <mat-label>Quota Policy Name</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="quota policy name"
+                  formControlName="quotaName"
+                />
+              </mat-form-field>
+
+              <mat-form-field
+                appearance="fill"
+                [color]="colorControl.value"
+                class="example-full-width item-flex"
+              >
+                <mat-label>Quota count</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="quota policy count"
+                  formControlName="count"
+                />
+              </mat-form-field>
+
+              <mat-form-field
+                appearance="fill"
+                [color]="colorControl.value"
+                class="example-full-width item-flex"
+              >
+                <mat-label>Quota interval</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="quota policy interval"
+                  formControlName="interval"
+                />
+              </mat-form-field>
+
+              <mat-form-field
+                appearance="fill"
+                [color]="colorControl.value"
+                class="example-full-width item-flex"
+              >
+                <mat-label>Quota Time Unit</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="quota time unit month/day"
+                  formControlName="timeUnit"
+                />
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width item-flex">
+                <mat-label>Quota start date & time</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="startTime"
+                  formControlName="startTime"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="startTime"
+                  class="example-full-width"
+                >
+                </mat-datepicker-toggle>
+                <mat-datepicker #startTime></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="mat-expand">
+            <mat-expansion-panel-header>
+              Spike Arrest Policy
+            </mat-expansion-panel-header>
+
+            <div formGroupName="SpikeArrest" class="container-flex">
+              <mat-form-field
+                appearance="fill"
+                [color]="colorControl.value"
+                class="example-full-width item-flex"
+              >
+                <mat-label>Spike Arrest Policy Name</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="spike arrest policy name"
+                  formControlName="spikeArrestName"
+                /> </mat-form-field
+              ><mat-form-field
+                appearance="fill"
+                [color]="colorControl.value"
+                class="example-full-width item-flex"
+              >
+                <mat-label>Spike Arrest Rate</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="spike arrest policy rate per second"
+                  formControlName="rate"
+                  min="1"
+                />
+                <span matSuffix>ps</span>
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <div class="container-flex">
+          <mat-form-field class="mat-expand example-full-width item-flex">
+            <mat-label>Proxy Type</mat-label>
+            <mat-select name="proxyType" formControlName="proxyType">
+              <mat-option *ngFor="let type of proxyTypes" [value]="type.value">
+                {{ type.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width item-flex">
+            <mat-label>API Type</mat-label>
+            <mat-select name="apiType" formControlName="apiType">
+              <mat-option
+                *ngFor="let apitype of apiTypes"
+                [value]="apitype.value"
+              >
+                {{ apitype.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="fill"
+            [color]="colorControl.value"
+            class="example-full-width item-flex"
+          >
+            <mat-label>API Name</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="api name"
+              formControlName="apiName"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="fill"
+            class="example-full-width item-flex"
+          >
+            <mat-label>App Team Email</mat-label>
+            <input
+              matInput
+              placeholder="team@fanniemae.com"
+              formControlName="appTeamEmail"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width item-flex">
+            <mat-label>Authorization</mat-label>
+            <mat-select name="authorization" formControlName="authorization">
+              <mat-option
+                *ngFor="let authorizationtype of authorizations"
+                [value]="authorizationtype.value"
+              >
+                {{ authorizationtype.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <div class="steps-button">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="goToNext(form)"
+        [disabled]="!form.valid"
+      >
+        Next
+      </button>
+    </div>
+    <div class="form-bottom"></div>
+  </section>
+</section>
